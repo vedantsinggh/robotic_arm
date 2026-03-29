@@ -1,0 +1,38 @@
+<sdf version="1.6">
+  <model name="pan_2">
+    <static>true</static>
+
+    <!-- ✅ Position in world -->
+    <pose>0.4 -0.2 0.05 0 0 0</pose>
+
+    <link name="link">
+
+      <!-- 🔵 Visual -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>file:///home/mirage/Projects/posha_ws/src/piper_task/meshes/pan.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+
+        <!-- ✅ Add material -->
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.8 0.8 0.8 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 🔴 Collision -->
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>file:///home/mirage/Projects/posha_ws/src/piper_task/meshes/pan.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+  </model>
+</sdf>

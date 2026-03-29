@@ -1,3 +1,8 @@
 /build
 /log
 /install
+/src/piper_task/build
+/src/piper_task/install
+/src/piper_task/__*
+/src/piper_task/log
+/src/piper_task/piper_task/__*

@@ -6,12 +6,12 @@ from moveit_configs_utils.launches import generate_demo_launch
 def generate_launch_description():
     moveit_config = (
         MoveItConfigsBuilder("piper", package_name="piper_moveit_config")
+        .robot_description(file_path="config/piper.urdf.xacro")
+        .robot_description_semantic(file_path="config/piper.srdf")
+        .trajectory_execution(file_path="config/moveit_controllers.yaml")
+        .planning_pipelines(pipelines=["ompl"])
+        .robot_description_kinematics(file_path="config/kinematics.yaml")  # ✅ IMPORTANT
         .to_moveit_configs()
     )
-    # generate_demo_launch handles everything:
-    # robot_state_publisher, move_group, RViz, ros2_control_node, spawn_controllers
-    # It reads ros2_controllers.yaml (plural) from config/ automatically.
-    # Make sure your file is named ros2_controllers.yaml (not ros2_controller.yaml).
-    return LaunchDescription([
-        generate_demo_launch(moveit_config),
-    ])
+
+    return generate_demo_launch(moveit_config)
